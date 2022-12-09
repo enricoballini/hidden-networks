@@ -29,13 +29,17 @@ import importlib
 
 import data
 import models
+from models import *
+from prettytable import PrettyTable
 
-
-# blabla bloblo
+import pdb
 
 
 
 def main():
+    
+    # pdb.set_trace()
+    # args.config = 'configs/smallscale/conv4/conv4_usc_unsigned.ym'
     print(args)
 
     if args.seed is not None:
@@ -48,11 +52,44 @@ def main():
     main_worker(args)
 
 
+
+
+    
+    # pdb.set_trace()
+    # args_pp = args
+    # ppp = get_models(   args_pp)
+    # 
+    # ppp = Conv2()
+    # 
+    # def count_parameters_1(model):
+    #     table = PrettyTable(["Modules", "Parameters"])
+    #     total_params = 0
+    #     for name, parameter in model.named_parameters():
+    #         if not parameter.requires_grad: continue
+    #         params = parameter.numel()
+    #         table.add_row([name, params])
+    #         total_params+=params
+    #     print(table)
+    #     print(f"Total Trainable Params: {total_params}")
+    #     return total_params
+    # 
+    # def count_parameters_2(model):
+    #     return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+    pdb.set_trace()
+
+
+
+
+
+
+
+
 def main_worker(args):
-    args.gpu = None
+    args.gpu = None                                                             # eh?
     train, validate, modifier = get_trainer(args)
 
-    if args.gpu is not None:
+    if args.gpu is not None: 
         print("Use GPU: {} for training".format(args.gpu))
 
     # create model and optimizer

@@ -7,6 +7,8 @@ from utils.builder import get_builder
 
 from args import args
 
+import pdb
+
 class Conv2(nn.Module):
     def __init__(self):
         super(Conv2, self).__init__()
@@ -234,3 +236,10 @@ class Conv6Wide(nn.Module):
         out = out.view(out.size(0), scale(256) * 4 * 4, 1, 1)
         out = self.linear(out)
         return out.squeeze()
+        
+        
+        
+    
+
+
+
